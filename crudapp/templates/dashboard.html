@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    
+    <div class="bg-dark col-12">
+        <div class="container col-10">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 container"><h2 class="text-white-50 m-5 ">CRUD app Sample</h2></div>
+                    <div class="col-12"><h1 class="text-white-50  container">Students </h1></div>
+                </div>
+            </div>
+            
+            <table class="table table-bordered bg-light mt-5">
+                <thead class="bg-info">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <th>Address</th>
+                        <th></th> <!-- Added Delete column header -->
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.class_name }}</td>
+                        <td>{{ student.address }}</td>
+                        <td>
+                            <a href="{% url 'null' student.id %}" class="btn btn-danger btn-sm mx-4">Delete</a>
+                        
+                            <a href="{% url 'edit' student.id %}" class="btn btn-secondary btn-sm mx-4">Edit Values</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+             <a href="{% url 'adddata' %}" class="btn btn-primary m-4 p-3 col-3">Add Student</a>
+            
+            <!-- Edit Values Button (Replace 'edit_values_url' with your actual URL) -->
+            
+        </div>
+    </div>
+    
+    
+
+    <!-- Link to Bootstrap JS and jQuery (for Bootstrap functionality) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
